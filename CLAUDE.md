@@ -14,7 +14,7 @@
 - 요구사항 md: `요구사항_B1-1.md` (원본 `AI_Tools_B1-B7_missions.md` 70–328줄)
 - 이해 md: `이해_B1-1.md` (`/us`가 생성 — 3단계 개념학습 교재)
 - 평가문항.md: 없음 — 추후 등록
-- 개인 repo: https://github.com/myCodyssey/B1-1 (public)
+- 개인 repo: https://github.com/soy7yos/B1-1 (public) — 구 myCodyssey/B1-1에서 이동
 - 팀 repo: 해당 없음
 
 ## 선행 미션 산출물
