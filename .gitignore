@@ -14,5 +14,10 @@ Thumbs.db
 desktop.ini
 .vscode/
 
+# Google Drive가 만드는 포인터 파일 (브라우저에서 문서 열면 생김)
+*.gdoc
+*.gsheet
+*.gslides
+
 # 도구 로컬 상태
 .omc/
