@@ -51,10 +51,10 @@
 - [ ] 4단계: 반응형 — 산출: 모바일 퍼스트 + 768px·1024px 미디어 쿼리, 모바일 nav 숨김+햄버거 노출, hover·transition·box-shadow / 검증: 창 너비 줄이며 3개 구간 배치 전환 확인 (logs/step_4_responsive.txt)
 - [ ] 5단계: JS 기반 + 인터랙션 1~4 — 산출: defer 연결, 햄버거 토글, 부드러운 스크롤, 스크롤 탑 버튼, 네비 스타일 변경 / 검증: 4개 각각 동작, var·onclick 없음 확인 (logs/step_5_interaction_core.txt)
 - [ ] 6단계: 다크 모드 + 스크롤 애니메이션 — 산출: 테마 토글 + localStorage 저장·복원, Intersection Observer 페이드인 / 검증: 토글 후 새로고침해도 유지, 스크롤 시 구역 등장 (logs/step_6_theme_scroll.txt)
-- [ ] 7단계: Contact 폼 UX — 산출: 필수값·이메일 형식 검증, 필드 근처 에러 메시지, preventDefault + 성공 메시지 / 검증: 빈 제출 차단, 잘못된 이메일 차단, 정상 시 성공 메시지 (logs/step_7_form.txt)
-- [ ] 8단계: GitHub API 연동 — 산출: fetch+async/await, map으로 카드 렌더, 로딩/성공/에러(재시도)/빈 상태, try/catch, 403 처리 / 검증: 정상 로드·네트워크 차단 시 에러 UI·재시도 동작 (logs/step_8_api.txt)
+- [ ] 7단계: Contact 폼 UX — 산출: `<form novalidate>`, 필수값·이메일 형식 검증(`/^[^\s@]+@[^\s@]+\.[^\s@]+$/`), 필드 근처 에러 메시지, preventDefault + 성공 메시지 / 검증: 빈 제출 차단, 잘못된 이메일 차단, 정상 시 성공 메시지 (logs/step_7_form.txt)
+- [ ] 8단계: GitHub API 연동 — 산출: fetch+async/await, `sort=updated`, `EXCLUDED_REPOS` filter, map으로 카드 렌더(이름·설명·링크, `description ?? '설명 없음'`), 로딩/성공/에러(재시도)/빈 상태, try/catch, 403 처리 / 검증: 정상 로드·네트워크 차단 시 에러 UI·재시도 동작·배열 `[]` 강제로 빈 상태 확인 (logs/step_8_api.txt)
 - [ ] 9단계: 상태 흐름 정리 + 배포 + README — 산출: "이벤트→상태→렌더링" 3종 주석/문서화, GitHub Pages 배포, README 필수 4항목 채움, 스크린샷 3종 / 검증: 배포 URL에서 전체 기능 동작, README 4항목 대조 (logs/step_9_deploy.txt)
-- [ ] (보너스) 프로젝트 필터링 / 타이핑 효과 / 폼 실제 전송 / prefers-color-scheme — 택하는 것만
+- [ ] (보너스) `prefers-color-scheme` 시스템 다크 모드 감지 — 6단계에 얹는다. 나머지 3개는 미채택
 
 ## 완료 단계 요약
 -
@@ -63,5 +63,24 @@
 -
 
 ## 미션 특이사항
-- 보너스(선택): 프로젝트 필터링 / 타이핑 효과 / 폼 실제 전송(Formspree·EmailJS) / 시스템 다크 모드 감지(`prefers-color-scheme`)
-- 기준값 자유지만 README 명시 필수: 스크롤탑 노출 300px / 네비 스타일 변경 60px / Intersection Observer threshold 0.2
+- 보너스는 **`prefers-color-scheme`만 채택**(2026.09.10). 필터링·타이핑 효과·폼 실제 전송은 비용 대비 실익이 없어 버렸다
+- 기준값 자유지만 README 명시 필수: 스크롤탑 노출 300px / 네비 스타일 변경 60px / Intersection Observer threshold 0.2. 권장값으로 구현한 뒤 직접 튜닝하므로 세 값을 `js/main.js` 상단 상수로 모은다(`SCROLL_TOP_THRESHOLD`·`NAV_SCROLL_THRESHOLD`·`OBSERVER_THRESHOLD`). 최종값 확정 시한은 9단계 README 작성 전
+
+### 확정 사항 (❓ 질문 목록 답변, 2026.09.10 — 근거는 `이해_B1-1.md`)
+| 항목 | 확정 |
+|---|---|
+| GitHub 아이디 | `soy7yos` |
+| 카드 열 수 | 모바일 1 / 태블릿·데스크톱 2 — 미디어 쿼리가 아니라 `repeat(auto-fit, minmax(320px, 1fr))`로 유도 |
+| 카드 필드·정렬 | 이름 + 설명 + repo 링크, `?sort=updated` |
+| 표시 repo | **개수 제한 없음**, `EXCLUDED_REPOS = ['B2-1']`로 제외 → 현재 `E1_1`·`E1_2`·`E1_3`·`B1-1` 4장 |
+| Hero CTA | Contact 섹션으로 스크롤 |
+| 프로필 이미지 | 임시 이미지, 로컬 `images/`에 파일로 (외부 placeholder URL 금지) |
+| 이메일 검증 | `/^[^\s@]+@[^\s@]+\.[^\s@]+$/` |
+| 팔레트·폰트 | ⏳ 참고 사이트 추출값 대기 — 3단계 착수 전. 폰트는 Google Fonts만(§6) |
+| 다크 모드 색 | 라이트 완성 후 결정. `[data-theme="dark"]` 블록은 3단계에서 빈 채로 미리 생성 |
+
+### 구현 시 함정
+- **`<input type="email">` + 자체 검증 충돌** — 브라우저 기본 검증이 먼저 걸려 `submit` 핸들러가 안 돈다. 그러면 요구사항 §6의 "입력 필드 근처 에러 메시지" 대신 브라우저 툴팁이 뜬다. `<form novalidate>`로 기본 검증을 끄고 JS가 전담
+- **`description`이 전부 `null`** — 실측(2026.09.10) public repo 5개 모두 비어 있다. `repo.description ?? '설명 없음'` 폴백 없으면 카드에 `null`이 찍힌다. GitHub에서 Description을 채워도 폴백은 남긴다
+- **빈 상태는 자연 발생하지 않음** — repo가 0개가 될 일이 없다. 8단계에서 배열을 잠깐 `[]`로 강제해 확인하고 그 사실을 `logs/step_8_api.txt`에 남긴다(평가 질문 대비)
+- **개수 제한(`slice`)을 쓰지 않는 이유** — 갱신순 상위 N개로 자르면 `B2-1` 작업 재개 시 그게 맨 위로 올라와 평가 대상인 `B1-1`이 잘린다. 제외 목록은 뺄 것만 적으므로 B3·B4가 생겨도 코드를 안 건드린다. 카드가 8장을 넘기면 그때 `slice` 추가
