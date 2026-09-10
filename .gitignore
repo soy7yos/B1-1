@@ -3,6 +3,7 @@
 이해_*.md
 평가준비_*.md
 평가문항.md
+CLAUDE.md
 
 # 시크릿 (.env.example은 커밋한다)
 .env
