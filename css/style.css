@@ -126,6 +126,11 @@ section {
   gap: var(--space-3);
 }
 
+/* .projects-grid의 display:grid가 브라우저 기본 [hidden]{display:none}과 우선순위가 같아 저자 스타일이 이겨버림 — 명시로 재정의 */
+.projects-grid[hidden] {
+  display: none;
+}
+
 img, .profile-img {
   max-width: 100%;
   border-radius: var(--radius);

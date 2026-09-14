@@ -1,0 +1,19 @@
+# 코드 작성 후 브라우저에서 확인:
+# 1) 정상 로드 — Projects에 카드(이름/설명/링크) 뜨는지, description "설명 없음" 폴백 보이는지
+# 2) 개발자도구 Network 탭에서 요청 실패시켜(오프라인) 에러 UI + "다시 시도" 버튼 동작 확인
+# 3) 콘솔에서 아래로 빈 상태 강제 확인: fetch('https://api.github.com/users/soy7yos/repos').then(()=>{}) // 실행 대신 콘솔에 renderProjects([]) 직접 호출해 "표시할 프로젝트가 없습니다" 확인
+
+PS G:\내 드라이브\Codyssey\02_AI_Tools\B1-1> git add index.html js/main.js 
+>> git commit -m "feat: GitHub API 연동 — Projects 카드 렌더링(로딩/에러/빈 상태)"
+>> git push
+[main 35745f2] feat: GitHub API 연동 — Projects 카드 렌더링(로딩/에러/빈 상태)
+ 2 files changed, 66 insertions(+), 2 deletions(-)
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (5/5), 2.00 KiB | 292.00 KiB/s, done.
+Total 5 (delta 3), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To https://github.com/soy7yos/B1-1.git
+   c8c6309..35745f2  main -> main
