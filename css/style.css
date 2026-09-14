@@ -18,8 +18,17 @@
   --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-/* 다크 모드 변수 — 6단계에서 채운다. 지금은 빈 채로 미리 생성해 구조만 잡아둔다 */
+/* 다크 모드 변수 — 라이트 완성 후 결정(미션 CLAUDE.md 확정 사항) */
 [data-theme="dark"] {
+  --bg: #1A1A1A;
+  --text: #F5F3EF;
+  --muted: #9A9A9A;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.4); /* 어두운 배경에선 밝은 그림자가 안 보여 값 자체를 재정의 */
+}
+
+/* 프로필 SVG는 검정 이니셜 고정이라 필터로 반전 — 실사진 교체 전까지만 유효(확정 사항) */
+[data-theme="dark"] .profile-img {
+  filter: invert(1);
 }
 
 * {
@@ -182,4 +191,16 @@ header nav.scrolled {
   border: 1px solid var(--text);
   background: var(--bg);
   cursor: pointer;
+}
+
+/* 스크롤 애니메이션 — JS가 등장 시 .visible만 추가, 나머지는 CSS transition이 담당 */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
