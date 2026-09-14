@@ -99,3 +99,66 @@ contactForm.addEventListener('submit', (e) => {
   contactForm.hidden = true; // 실제 전송은 안 함(학습용) — 폼을 숨기고 성공 메시지만 노출
   successMessage.hidden = false;
 });
+
+// GitHub API 연동 — 이해_B1-1.md §4-8 확정값(soy7yos, sort=updated, 개수 제한 없음) 그대로
+const GITHUB_USER = 'soy7yos';
+const EXCLUDED_REPOS = ['B2-1']; // 진행 중인 repo는 평가 대상(B1-1)을 밀어내지 않도록 제외 목록으로 거른다 — slice 대신 쓰는 이유는 이해 문서 §4-8 참고
+const projectsStatus = document.getElementById('projects-status');
+const projectsGrid = document.getElementById('projects-grid');
+
+function renderProjects(repos) {
+  if (repos.length === 0) {
+    projectsGrid.hidden = true;
+    projectsStatus.hidden = false;
+    projectsStatus.textContent = '표시할 프로젝트가 없습니다.';
+    return;
+  }
+
+  projectsGrid.textContent = ''; // 재시도 시 이전 카드가 중복되지 않도록 비우고 다시 그림
+  repos.forEach(({ name, description, html_url }) => {
+    // 카드 골격은 DOM API로, 남이 지은 값(description)은 textContent로 — repo description에 <> 등이 섞여도 마크업으로 해석 안 되게(이해 문서 §4-7 보안 한 줄)
+    const card = document.createElement('article');
+    card.className = 'card';
+    const title = document.createElement('h3');
+    title.textContent = name;
+    const desc = document.createElement('p');
+    desc.textContent = description ?? '설명 없음'; // 실측상 전부 null이라 폴백 필수(§4-8)
+    const link = document.createElement('a');
+    link.href = html_url;
+    link.textContent = '보기';
+    card.append(title, desc, link);
+    projectsGrid.appendChild(card);
+  });
+
+  projectsStatus.hidden = true;
+  projectsGrid.hidden = false;
+}
+
+async function loadProjects() {
+  projectsStatus.hidden = false;
+  projectsStatus.textContent = '불러오는 중...';
+  projectsGrid.hidden = true;
+
+  try {
+    const response = await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?sort=updated`);
+    if (!response.ok) {
+      // 403 = 무인증 시간당 60회 제한 초과(§7). 다른 실패도 같은 에러 UI로 묶는다 — 원인별로 나눠봐야 사용자가 할 수 있는 건 재시도뿐
+      throw new Error(`GitHub API 응답 실패: ${response.status}`);
+    }
+    const repos = await response.json();
+    const visible = repos.filter((repo) => !EXCLUDED_REPOS.includes(repo.name));
+    renderProjects(visible);
+  } catch (error) {
+    projectsGrid.hidden = true;
+    projectsStatus.hidden = false;
+    projectsStatus.textContent = ''; // 재시도 버튼을 매번 새로 붙이므로 이전 상태 비움
+    projectsStatus.append('프로젝트를 불러올 수 없습니다. ');
+    const retryBtn = document.createElement('button');
+    retryBtn.type = 'button';
+    retryBtn.textContent = '다시 시도';
+    retryBtn.addEventListener('click', loadProjects);
+    projectsStatus.appendChild(retryBtn);
+  }
+}
+
+loadProjects();

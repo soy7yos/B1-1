@@ -72,8 +72,9 @@
 
     <section id="projects">
       <h2>PROJECTS</h2>
-      <!-- GitHub API 카드는 8단계에서 JS가 렌더링. 지금은 빈 컨테이너만 -->
-      <div class="projects-grid" id="projects-grid"></div>
+      <!-- 로딩/에러/빈 상태는 하나씩만 켜지므로 별도 요소로 두고 JS가 hidden을 스위치 -->
+      <p id="projects-status">불러오는 중...</p>
+      <div class="projects-grid" id="projects-grid" hidden></div>
     </section>
 
     <section id="contact">
