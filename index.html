@@ -8,5 +8,104 @@
   <script src="js/main.js" defer></script>
 </head>
 <body>
+  <header>
+    <nav>
+      <!-- 로고를 홈 앵커로 겸용 — 별도 "HOME" 메뉴 없이 브랜드 클릭으로 대체 -->
+      <a href="#hero" class="logo">soy</a>
+
+      <!-- 요구사항 §4-2: 네비에 각 섹션 앵커 링크. Hero·Footer는 항상 보이는 첫/끝 구간이라 제외 -->
+      <ul class="nav-links">
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#skills">SKILLS</a></li>
+        <li><a href="#projects">PROJECTS</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+
+      <!-- 동작은 5단계(햄버거 토글)·6단계(다크 모드)에서. 지금은 마크업만 -->
+      <button type="button" class="theme-toggle" aria-label="다크 모드 전환">LIGHT</button>
+      <button type="button" class="hamburger" aria-label="메뉴 열기" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero">
+      <p class="label">2026 · PORTFOLIO</p>
+      <h1>soy</h1>
+      <p>안녕하세요. 비개발자이고, AI와 함께 웹을 만들고 있습니다.</p>
+      <a href="#contact" class="cta">CONTACT</a>
+    </section>
+
+    <section id="about">
+      <!-- 프로필 이미지: 이니셜 플레이스홀더 SVG. 다크 모드 반전은 3단계 CSS에서 -->
+      <img src="images/profile.svg" alt="soy 이니셜 프로필 이미지" class="profile-img">
+
+      <article>
+        <h2>BUILT — 01</h2>
+        <p>통계학을 전공했고, 원래 이런 도구 다루는 걸 좋아했습니다. 필요한 게 있으면 찾기보다 만들어보는 편이라, AI와 작업을 시작했습니다.</p>
+        <p>Discord에 메모를 던지면 자동으로 분류하고, 주간 단위로 우선순위까지 판단해주는 개인 기록 도구. 개인 가계부와 여러 사업자 장부를 하나로 합쳐 손익을 나누고 셀프 신고까지 관리하는 복식부기 도구도 만들었습니다.</p>
+
+        <!-- 스크린샷 미도착 — img 대신 CSS placeholder(점선 박스). 파일 도착 시 <img>로 교체하되 이 구조(figure+data 속성)는 유지 -->
+        <figure class="thumb-placeholder" data-src="images/built-notes.png" data-alt="메모 자동 분류·주간 우선순위 판단 개인 기록 도구 화면">
+          <span>이미지 준비 중</span>
+        </figure>
+        <figure class="thumb-placeholder" data-src="images/built-ledger.png" data-alt="개인·사업자 장부 통합 복식부기 도구 화면">
+          <span>이미지 준비 중</span>
+        </figure>
+      </article>
+
+      <article>
+        <h2>OFF DUTY — 02</h2>
+        <p>쉬는 시간엔 스릴러·추리·범죄물을 봅니다.</p>
+      </article>
+    </section>
+
+    <section id="skills">
+      <h2>SKILLS</h2>
+      <ul class="skills-list">
+        <li>Claude</li><li>ChatGPT</li><li>Gemini</li>
+        <li>R</li><li>Python</li><li>SQL</li><li>Excel</li><li>PowerPoint</li><li>Word</li><li>SPSS</li><li>SAS</li>
+        <li>Sprinklr</li><li>Brightics Studio</li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <h2>PROJECTS</h2>
+      <!-- GitHub API 카드는 8단계에서 JS가 렌더링. 지금은 빈 컨테이너만 -->
+      <div class="projects-grid" id="projects-grid"></div>
+    </section>
+
+    <section id="contact">
+      <h2>CONTACT</h2>
+      <p>메시지를 남겨주세요.</p>
+
+      <!-- novalidate: 브라우저 기본 검증(email 타입 등) 끄고 7단계에서 JS가 전담 -->
+      <form novalidate>
+        <label for="name">NAME</label>
+        <input type="text" id="name" name="name">
+        <span class="error-message" id="name-error"></span>
+
+        <label for="email">EMAIL</label>
+        <input type="email" id="email" name="email">
+        <span class="error-message" id="email-error"></span>
+
+        <label for="message">MESSAGE</label>
+        <textarea id="message" name="message"></textarea>
+        <span class="error-message" id="message-error"></span>
+
+        <button type="submit">SEND</button>
+      </form>
+      <p class="success-message" id="success-message" hidden>입력이 확인되었습니다. 이 폼은 학습용이라 실제로 전송되지 않습니다.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 soy · Codyssey AI 올인원 2기 B1-1</p>
+    <a href="https://github.com/soy7yos">GITHUB</a>
+  </footer>
+
+  <!-- 5단계에서 노출/스크롤 로직 연결 -->
+  <button type="button" id="scroll-top" aria-label="맨 위로 이동" hidden>↑</button>
 </body>
 </html>
