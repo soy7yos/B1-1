@@ -1,0 +1,16 @@
+Script started on Mon Sep 14 16:54:51 2026
+[1m[7m%[27m[1m[0m                                                                                                               [0m[27m[24m[Jsysy22042026@c6r1s1 B1-1 % [K[?2004h[7mgit add index.html[27m[18D[27mg[27mi[27mt[27m [27ma[27md[27md[27m [27mi[27mn[27md[27me[27mx[27m.[27mh[27mt[27mm[27ml[?2004l
+[1m[7m%[27m[1m[0m                                                                                                               [0m[27m[24m[Jsysy22042026@c6r1s1 B1-1 % [K[?2004h[7mgit commit -m "feat: HTML 시맨틱 구조 — 6개 섹션 마크업 + nav 앵커 링크"[27m
+[7mgit push[27m[K[A[19C[27mg[27mi[27mt[27m [27mc[27mo[27mm[27mm[27mi[27mt[27m [27m-[27mm[27m [27m"[27mf[27me[27ma[27mt[27m:[27m [27mH[27mT[27mM[27mL[27m [27m시[27m[27m맨[27m[27m틱[27m[27m [27m구[27m[27m조[27m[27m [27m—[27m [27m6[27m개[27m[27m [27m섹[27m[27m션[27m[27m [27m마[27m[27m크[27m[27m업[27m[27m [27m+[27m [27mn[27ma[27mv[27m [27m앵[27m[27m커[27m[27m [27m링[27m[27m크[27m[27m"[1B[27mg[27mi[27mt[27m [27mp[27mu[27ms[27mh[?2004l
+[main 9c9b1f8] feat: HTML 시맨틱 구조 — 6개 섹션 마크업 + nav 앵커 링크
+ 1 file changed, 111 insertions(+), 12 deletions(-)
+오브젝트 나열하는 중: 5, 완료.
+오브젝트 개수 세는 중:  20% (1/5)오브젝트 개수 세는 중:  40% (2/5)오브젝트 개수 세는 중:  60% (3/5)오브젝트 개수 세는 중:  80% (4/5)오브젝트 개수 세는 중: 100% (5/5)오브젝트 개수 세는 중: 100% (5/5), 완료.
+Delta compression using up to 6 threads
+오브젝트 압축하는 중:  33% (1/3)오브젝트 압축하는 중:  66% (2/3)오브젝트 압축하는 중: 100% (3/3)오브젝트 압축하는 중: 100% (3/3), 완료.
+오브젝트 쓰는 중:  33% (1/3)오브젝트 쓰는 중:  66% (2/3)오브젝트 쓰는 중: 100% (3/3)오브젝트 쓰는 중: 100% (3/3), 2.53 KiB | 2.53 MiB/s, 완료.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas:   0% (0/1)[Kremote: Resolving deltas: 100% (1/1)[Kremote: Resolving deltas: 100% (1/1), completed with 1 local object.[K
+To https://github.com/soy7yos/B1-1.git
+   3077822..9c9b1f8  main -> main
+[1m[7m%[27m[1m[0m                                                                                                               [0m[27m[24m[Jsysy22042026@c6r1s1 B1-1 % [K[?2004h
