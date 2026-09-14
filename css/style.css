@@ -41,6 +41,14 @@ h1, h2 {
   letter-spacing: 0.05em;
 }
 
+/* header: 스크롤해도 계속 보이게 고정 — 안 하면 60px 지점의 .scrolled 스타일 변화가 이미 화면 밖이라 안 보인다 */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg); /* 고정된 nav 뒤로 콘텐츠가 스크롤돼 비쳐 보이는 것 방지 */
+}
+
 /* nav: 로고 좌·메뉴 우 — 요구사항 §4-5(4) 레이아웃 기준 */
 header nav {
   display: flex;
@@ -48,6 +56,7 @@ header nav {
   justify-content: space-between;
   padding: var(--space-2) var(--space-3);
   transition: padding 0.2s ease, box-shadow 0.2s ease; /* 5단계 네비 스크롤 스타일 변경 시 부드럽게 */
+  position: relative; /* .nav-links.open의 기준점 — 없으면 뷰포트 기준으로 계산돼 화면 밖에 렌더링됨 */
 }
 
 /* 모바일 퍼스트: 메뉴 목록은 기본 숨김, 햄버거로 토글(동작은 5단계) */
@@ -136,4 +145,41 @@ img, .profile-img {
 .error-message {
   display: block;
   color: var(--muted);
+}
+
+/* 부드러운 스크롤 — 네이티브 CSS로 처리, JS scrollIntoView 불필요 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 모바일 메뉴 열림 상태 — 햄버거 JS가 이 클래스만 토글 */
+.nav-links.open {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--bg);
+  padding: var(--space-3);
+  box-shadow: var(--shadow);
+}
+
+/* 네비 스크롤 스타일 변경 — 60px 이상 스크롤 시 여백 줄고 그림자 생김 */
+header nav.scrolled {
+  padding: var(--space-1) var(--space-3);
+  box-shadow: var(--shadow);
+}
+
+/* 스크롤탑 버튼 — 포지셔닝이 없으면 hidden을 떼도 문서 맨 끝(footer 아래)에 렌더링돼 안 보인다 */
+#scroll-top {
+  position: fixed;
+  right: var(--space-3);
+  bottom: var(--space-3);
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--text);
+  background: var(--bg);
+  cursor: pointer;
 }
