@@ -2,3 +2,19 @@
 # - 빈 채로 SEND → 3칸 모두 에러 메시지
 # - 이메일에 "abc" 입력 후 SEND → 이메일 칸만 에러
 # - 정상 입력 후 SEND → 폼 사라지고 성공 메시지, 새로고침 안 됨
+
+PS G:\내 드라이브\Codyssey\02_AI_Tools\B1-1> git add js/main.js logs/step_7_form.txt
+>> git commit -m "feat: Contact 폼 유효성 검사 + 제출 처리"
+>> git push
+[main e56e3d3] feat: Contact 폼 유효성 검사 + 제출 처리
+ 2 files changed, 35 insertions(+)
+ create mode 100644 logs/step_7_form.txt
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (6/6), 1.55 KiB | 317.00 KiB/s, done.
+Total 6 (delta 3), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To https://github.com/soy7yos/B1-1.git
+   5c23ab1..e56e3d3  main -> main
