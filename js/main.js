@@ -68,3 +68,34 @@ document.querySelectorAll('main section').forEach((section) => {
   section.classList.add('fade-in'); // 클래스를 JS로 붙여야 JS 꺼진 브라우저에서도 콘텐츠가 숨겨지지 않음
   sectionObserver.observe(section);
 });
+
+// Contact 폼 — 필수값 + 이메일 형식 검증. 인풋마다 상태 객체 안 만들고 매 제출 시 DOM에서 직접 읽는다(폼이 3칸뿐이라 그걸로 충분, 상태 관리 라이브러리 급의 문제가 아님)
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // 이해_B1-1.md에서 확정한 정규식 그대로
+const contactForm = document.querySelector('#contact form');
+const successMessage = document.getElementById('success-message');
+
+function setError(fieldId, message) {
+  document.getElementById(`${fieldId}-error`).textContent = message;
+}
+
+contactForm.addEventListener('submit', (e) => {
+  e.preventDefault(); // 기본 동작(새로고침)을 막아야 여기서 계속 처리 가능
+
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+
+  // 필드마다 에러를 먼저 지우고 다시 채운다 — 이전 제출의 에러가 남아있지 않도록
+  setError('name', name === '' ? '이름을 입력해 주세요.' : '');
+  setError('email', email === '' ? '이메일을 입력해 주세요.' : !EMAIL_PATTERN.test(email) ? '이메일 형식이 올바르지 않습니다.' : '');
+  setError('message', message === '' ? '메시지를 입력해 주세요.' : '');
+
+  const hasError = name === '' || email === '' || !EMAIL_PATTERN.test(email) || message === '';
+  if (hasError) {
+    successMessage.hidden = true;
+    return;
+  }
+
+  contactForm.hidden = true; // 실제 전송은 안 함(학습용) — 폼을 숨기고 성공 메시지만 노출
+  successMessage.hidden = false;
+});
