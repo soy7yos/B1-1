@@ -28,4 +28,6 @@ VS Code + Live Server 확장으로 `index.html` 실행.
 - Intersection Observer threshold: 0.25
 
 ## 스크린샷
-- (데스크톱 / 모바일 / 다크모드 — 완료 후 추가)
+| 데스크톱 | 모바일 | 다크 모드 |
+|---|---|---|
+| ![데스크톱 화면](images/screenshot-light.png) | ![모바일 화면](images/screenshot-mobile.png) | ![다크 모드 화면](images/screenshot-dark.png) |
