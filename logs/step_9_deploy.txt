@@ -1,0 +1,2 @@
+# GitHub 저장소 페이지 → Settings → Pages → Source: main / (root) 선택 후 저장 (브라우저 작업)
+# 배포된 URL(https://soy7yos.github.io/B1-1/)에서 반응형·인터랙션·API·폼 직접 확인
