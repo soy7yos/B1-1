@@ -208,7 +208,11 @@ header nav.scrolled {
 /* 스크롤탑 버튼 — 포지셔닝이 없으면 hidden을 떼도 문서 맨 끝(footer 아래)에 렌더링돼 안 보인다 */
 #scroll-top {
   position: fixed;
-  right: var(--space-3);
+
+  /* 오른쪽 아래에 두면 footer의 GITHUB 링크와 같은 모서리를 써서 1200px보다 좁은 창에서 덮는다.
+     footer는 space-between이라 가운데가 비어 있다(375px에서 저작권 줄과 겹치는 건 감수) */
+  left: 50%;
+  transform: translateX(-50%);
   bottom: var(--space-3);
   z-index: 10;
   width: 40px;
@@ -274,6 +278,13 @@ h2 {
   font-size: clamp(64px, 18vw, 200px);
   line-height: 0.9;
   text-transform: none;
+
+  /* line-height 0.9는 줄 상자를 폰트보다 짧게 만들어 y 꼬리가 상자 밖으로 0.1125em 넘친다.
+     section의 gap 24px은 글자가 아니라 상자 기준이라 그 넘침에 잡아먹혀, 글자가 커질수록
+     여백이 16px(모바일) → 2px(최대 크기)로 쪼그라든다. 글자 크기에 비례하는 em으로 그만큼을
+     돌려주면 어느 크기에서도 25~27px로 일정해진다.
+     위쪽은 안 준다 — soy는 s·o·y 전부 x-height라 위로 올라가는 글자가 없어 이미 여유롭다 */
+  margin-bottom: 0.125em;
 }
 
 #hero .label {
