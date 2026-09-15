@@ -507,3 +507,17 @@ footer a {
   border-bottom: 1px solid var(--text);
   padding-bottom: 2px;
 }
+
+/* 768px 이상에서는 .open을 무시한다.
+   .nav-links.open(클래스 2개)이 위 768px 블록의 .nav-links(클래스 1개)보다 세서,
+   모바일에서 메뉴를 열어둔 채 창을 넓히면 드롭다운 모양이 그대로 남았다.
+   같은 선택자로 덮어써야 하므로 특이도가 아니라 '파일에서 더 뒤'가 근거다. */
+@media (min-width: 768px) {
+  .nav-links.open {
+    flex-direction: row;
+    position: static;
+    padding: 0;
+    background: none;
+    box-shadow: none;
+  }
+}
