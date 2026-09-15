@@ -1,5 +1,13 @@
 # WORKLOG
 
+## 2026-09-16
+
+### 20:12  [요약] — 9단계(배포+README) 완료, 로그 주석 보완
+- 시도: `/st 9 시작·완료`로 상태 흐름 3종 주석·README 배포 URL·기준값 확정 후, 배포된 GitHub Pages URL(https://soy7yos.github.io/B1-1/)에서 반응형·다크모드·햄버거·Projects API·Contact 폼을 브라우저로 직접 확인
+- 발견: Contact 폼 정상 제출 후 `contactForm.hidden = true`를 줘도 폼이 안 사라지는 버그 — `#contact form { display:flex }`(특이도 1,0,1)가 브라우저 기본 `form[hidden]{display:none}`(0,1,0)을 항상 이김(8단계 `.projects-grid[hidden]`과 동일 유형). 또한 1~6단계 로그(`logs/step_1~6_*.txt`, Mac `script` 녹화)에 검증 주석이 빠져 있던 것을 사용자가 인지 — "조작이 아니라 서식을 잘못 이해해 안 넣었다"고 확인
+- 결정: `css/style.css`에 `#contact form[hidden] { display: none; }` 추가(재배포 전, 이번 커밋에 포함). 1~6단계 로그는 사후 조작 우려로 원본 터미널 출력은 그대로 두고 "Script started" 줄 바로 아래에 `#` 검증 주석만 추가, 8단계 로그엔 403 처리 확인 항목 한 줄 보완. 7단계는 이미 충분해 변경 없음
+- 다음: 커밋 반영 후 재배포 확인 필요 — 폼 hidden 수정이 실제 배포 URL에 반영됐는지 다음 세션에서 재확인. 시크릿 점검 → `/ex` → `/pg B1-1 완료`로 종료 루틴 이어가기
+
 ## 2026-09-15
 
 ### 23:47  [요약] — About 이미지 그림자·호버 확대 재설계, 스크롤탑 기준값 조정

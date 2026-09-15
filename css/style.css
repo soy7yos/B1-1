@@ -527,6 +527,12 @@ html[data-theme="dark"] .theme-toggle .opt-dark::before {
   gap: 4px;
 }
 
+/* #contact form(아이디+요소, 특이도 1,0,1)이 브라우저 기본 [hidden]{display:none}(0,1,0)보다 항상 이겨
+   제출 성공 후 hidden을 줘도 폼이 안 사라지던 것과 같은 종류 버그(.projects-grid[hidden]과 동일 원인) — 명시로 재정의 */
+#contact form[hidden] {
+  display: none;
+}
+
 /* 안내문은 보조색으로 내리고 라벨을 본문색으로 올린다 — 입력 구조가 먼저 읽히게 */
 #contact > p:first-of-type {
   color: var(--muted);
