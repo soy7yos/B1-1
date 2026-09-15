@@ -29,11 +29,6 @@
   --line: rgba(245, 243, 239, 0.16);
 }
 
-/* 프로필 SVG는 검정 이니셜 고정이라 필터로 반전 — 실사진 교체 전까지만 유효(확정 사항) */
-[data-theme="dark"] .profile-img {
-  filter: invert(1);
-}
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -294,7 +289,7 @@ h2 {
 /* About */
 .profile-img {
   width: 100%;
-  max-width: 240px; /* SVG intrinsic이 400px이라 제한이 없으면 열을 밀어낸다 */
+  max-width: 240px; /* 원본이 1736px이라 제한이 없으면 열을 밀어낸다 */
 }
 
 #about article {
