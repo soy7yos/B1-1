@@ -1,5 +1,4 @@
 배포 URL: https://soy7yos.github.io/B1-1/ — Pages 배포 확인, 200 OK 정상 로드
-
 브라우저(1280px 데스크톱 + 375px 모바일)로 직접 확인한 결과:
 - 반응형: 데스크톱 hero·nav 레이아웃 정상 / 375px에서 nav 링크 숨고 햄버거 아이콘으로 전환
 - 햄버거 메뉴: 클릭 시 드롭다운 오픈(ABOUT·SKILLS·PROJECTS·CONTACT), 재클릭 시 닫힘
@@ -12,5 +11,4 @@
     - 원인: `#contact form { display:flex }`(특이도 1,0,1)이 브라우저 기본 `form[hidden]{display:none}`(0,1,0)보다 항상 이겨 `hidden` 속성이 무시됨. 8단계 `.projects-grid[hidden]` 버그와 같은 원인
     - 수정: `css/style.css`에 `#contact form[hidden] { display: none; }` 추가
     - 재배포 전이라 수정 후 재확인은 다음 push 뒤 진행
-
 에러·해결 기록은 미션 CLAUDE.md `## 에러 & 해결 기록`에 별도 추가.
