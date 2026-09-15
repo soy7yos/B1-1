@@ -1,7 +1,11 @@
 Script started on Mon Sep 14 18:59:38 2026
-[1m[7m%[27m[1m[0m                                                                                                               [0m[27m[24m[Jsysy22042026@c6r1s1 B1-1 % [K[?2004h[7mgit add css/style.css[27m
-[7mgit commit -m "feat: CSS 변수·nav Flexbox·Projects Grid 레이아웃"[27m[K
-[7mgit push[27m[K[A[A[19C[27mg[27mi[27mt[27m [27ma[27md[27md[27m [27mc[27ms[27ms[27m/[27ms[27mt[27my[27ml[27me[27m.[27mc[27ms[27ms[1B[27mg[27mi[27mt[27m [27mc[27mo[27mm[27mm[27mi[27mt[27m [27m-[27mm[27m [27m"[27mf[27me[27ma[27mt[27m:[27m [27mC[27mS[27mS[27m [27m변[27m[27m수[27m[27m·[27mn[27ma[27mv[27m [27mF[27ml[27me[27mx[27mb[27mo[27mx[27m·[27mP[27mr[27mo[27mj[27me[27mc[27mt[27ms[27m [27mG[27mr[27mi[27md[27m [27m레[27m[27m이[27m[27m아[27m[27m웃[27m[27m"[1B[27mg[27mi[27mt[27m [27mp[27mu[27ms[27mh[?2004l
+# 코드 작성 후 브라우저에서 확인:
+# - 데스크톱 폭에서 nav가 Flexbox로 로고 좌·메뉴 우 배치되는지 확인
+# - Projects 카드가 Grid(auto-fit·minmax)로 격자 배치되는지 확인
+# - :root 변수·[data-theme="dark"] 빈 블록이 콘솔 getComputedStyle로 조회되는지 확인
+[1m[7m%[27m[1m[0m                                                                                                               [0m[27m[24m[Jsysy22042026@c6r1s1 B1-1 % [K[?2004h[7mgit add css/style.css[27m
+[7mgit commit -m "feat: CSS 변수·nav Flexbox·Projects Grid 레이아웃"[27m[K
+[7mgit push[27m[K[A[A[19C[27mg[27mi[27mt[27m [27ma[27md[27md[27m [27mc[27ms[27ms[27m/[27ms[27mt[27my[27ml[27me[27m.[27mc[27ms[27ms[1B[27mg[27mi[27mt[27m [27mc[27mo[27mm[27mm[27mi[27mt[27m [27m-[27mm[27m [27m"[27mf[27me[27ma[27mt[27m:[27m [27mC[27mS[27mS[27m [27m변[27m[27m수[27m[27m·[27mn[27ma[27mv[27m [27mF[27ml[27me[27mx[27mb[27mo[27mx[27m·[27mP[27mr[27mo[27mj[27me[27mc[27mt[27ms[27m [27mG[27mr[27mi[27md[27m [27m레[27m[27m이[27m[27m아[27m[27m웃[27m[27m"[1B[27mg[27mi[27mt[27m [27mp[27mu[27ms[27mh[?2004l
 [main ed29b29] feat: CSS 변수·nav Flexbox·Projects Grid 레이아웃
  1 file changed, 96 insertions(+), 1 deletion(-)
 오브젝트 나열하는 중: 7, 완료.
@@ -13,9 +17,9 @@ Total 4 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
 remote: Resolving deltas:   0% (0/1)[Kremote: Resolving deltas: 100% (1/1)[Kremote: Resolving deltas: 100% (1/1), completed with 1 local object.[K
 To https://github.com/soy7yos/B1-1.git
    a2444f8..ed29b29  main -> main
-[1m[7m%[27m[1m[0m                                                                                                               [0m[27m[24m[Jsysy22042026@c6r1s1 B1-1 % [K[?2004h[7mexit[27m
-[7mgit add logs/step_3_css_layout.txt[27m[K
-[7mgit commit -m "docs: 3단계 검증 로그 추가"[27m[K
-[7mgit push[27m[K[3A[19C[27me[27mx[27mi[27mt[1B[27mg[27mi[27mt[27m [27ma[27md[27md[27m [27ml[27mo[27mg[27ms[27m/[27ms[27mt[27me[27mp[27m_[27m3[27m_[27mc[27ms[27ms[27m_[27ml[27ma[27my[27mo[27mu[27mt[27m.[27mt[27mx[27mt[1B[27mg[27mi[27mt[27m [27mc[27mo[27mm[27mm[27mi[27mt[27m [27m-[27mm[27m [27m"[27md[27mo[27mc[27ms[27m:[27m [27m3[27m단[27m[27m계[27m[27m [27m검[27m[27m증[27m[27m [27m로[27m[27m그[27m[27m [27m추[27m[27m가[27m[27m"[1B[27mg[27mi[27mt[27m [27mp[27mu[27ms[27mh[?2004l
+[1m[7m%[27m[1m[0m                                                                                                               [0m[27m[24m[Jsysy22042026@c6r1s1 B1-1 % [K[?2004h[7mexit[27m
+[7mgit add logs/step_3_css_layout.txt[27m[K
+[7mgit commit -m "docs: 3단계 검증 로그 추가"[27m[K
+[7mgit push[27m[K[3A[19C[27me[27mx[27mi[27mt[1B[27mg[27mi[27mt[27m [27ma[27md[27md[27m [27ml[27mo[27mg[27ms[27m/[27ms[27mt[27me[27mp[27m_[27m3[27m_[27mc[27ms[27ms[27m_[27ml[27ma[27my[27mo[27mu[27mt[27m.[27mt[27mx[27mt[1B[27mg[27mi[27mt[27m [27mc[27mo[27mm[27mm[27mi[27mt[27m [27m-[27mm[27m [27m"[27md[27mo[27mc[27ms[27m:[27m [27m3[27m단[27m[27m계[27m[27m [27m검[27m[27m증[27m[27m [27m로[27m[27m그[27m[27m [27m추[27m[27m가[27m[27m"[1B[27mg[27mi[27mt[27m [27mp[27mu[27ms[27mh[?2004l
 
 Script done on Mon Sep 14 19:00:22 2026

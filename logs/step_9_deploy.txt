@@ -1,2 +1,16 @@
-# GitHub 저장소 페이지 → Settings → Pages → Source: main / (root) 선택 후 저장 (브라우저 작업)
-# 배포된 URL(https://soy7yos.github.io/B1-1/)에서 반응형·인터랙션·API·폼 직접 확인
+배포 URL: https://soy7yos.github.io/B1-1/ — Pages 배포 확인, 200 OK 정상 로드
+
+브라우저(1280px 데스크톱 + 375px 모바일)로 직접 확인한 결과:
+- 반응형: 데스크톱 hero·nav 레이아웃 정상 / 375px에서 nav 링크 숨고 햄버거 아이콘으로 전환
+- 햄버거 메뉴: 클릭 시 드롭다운 오픈(ABOUT·SKILLS·PROJECTS·CONTACT), 재클릭 시 닫힘
+- 다크 모드 토글: 클릭 시 전체 배색 반전(DARK 표시로 마커 이동), 새로고침(재접속) 후에도 DARK 유지 — localStorage 확인
+- Projects(GitHub API): 카드 4장(B1-1·E1_3·E1_2·E1_1) 이름+설명+링크로 정상 렌더링. description이 채워져 있어 "설명 없음" 폴백은 이번엔 안 보임(레포에 설명을 채웠기 때문, 폴백 로직 자체는 8단계 로그에서 이미 확인)
+- Contact 폼:
+  - 빈 채로 SEND → NAME/EMAIL/MESSAGE 3칸 모두 에러 메시지 노출
+  - EMAIL에 "abc"만 입력 후 SEND → EMAIL 칸만 "이메일 형식이 올바르지 않습니다" 에러
+  - 정상 값 입력 후 SEND → 성공 메시지 노출은 됐으나, **폼이 사라지지 않는 버그 발견**
+    - 원인: `#contact form { display:flex }`(특이도 1,0,1)이 브라우저 기본 `form[hidden]{display:none}`(0,1,0)보다 항상 이겨 `hidden` 속성이 무시됨. 8단계 `.projects-grid[hidden]` 버그와 같은 원인
+    - 수정: `css/style.css`에 `#contact form[hidden] { display: none; }` 추가
+    - 재배포 전이라 수정 후 재확인은 다음 push 뒤 진행
+
+에러·해결 기록은 미션 CLAUDE.md `## 에러 & 해결 기록`에 별도 추가.

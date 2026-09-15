@@ -1,7 +1,11 @@
 Script started on Mon Sep 14 19:04:10 2026
-[1m[7m%[27m[1m[0m                                                                                                               [0m[27m[24m[Jsysy22042026@c6r1s1 B1-1 % [K[?2004h[7mgit add css/style.css[27m
-[7mgit commit -m "feat: 모바일 퍼스트 반응형 + 카드 hover·transition"[27m[K
-[7mgit push[27m[K[A[A[19C[27mg[27mi[27mt[27m [27ma[27md[27md[27m [27mc[27ms[27ms[27m/[27ms[27mt[27my[27ml[27me[27m.[27mc[27ms[27ms[1B[27mg[27mi[27mt[27m [27mc[27mo[27mm[27mm[27mi[27mt[27m [27m-[27mm[27m [27m"[27mf[27me[27ma[27mt[27m:[27m [27m모[27m[27m바[27m[27m일[27m[27m [27m퍼[27m[27m스[27m[27m트[27m[27m [27m반[27m[27m응[27m[27m형[27m[27m [27m+[27m [27m카[27m[27m드[27m[27m [27mh[27mo[27mv[27me[27mr[27m·[27mt[27mr[27ma[27mn[27ms[27mi[27mt[27mi[27mo[27mn[27m"[1B[27mg[27mi[27mt[27m [27mp[27mu[27ms[27mh[?2004l
+# 코드 작성 후 브라우저에서 확인:
+# - 창 너비를 좁혀가며 768px·1024px 기준으로 모바일/태블릿/데스크톱 3구간 배치 전환 확인
+# - 모바일 폭에서 nav 숨김 + 햄버거 버튼 노출 확인
+# - 카드에 마우스 hover 시 그림자·transition 부드럽게 적용되는지 확인
+[1m[7m%[27m[1m[0m                                                                                                               [0m[27m[24m[Jsysy22042026@c6r1s1 B1-1 % [K[?2004h[7mgit add css/style.css[27m
+[7mgit commit -m "feat: 모바일 퍼스트 반응형 + 카드 hover·transition"[27m[K
+[7mgit push[27m[K[A[A[19C[27mg[27mi[27mt[27m [27ma[27md[27md[27m [27mc[27ms[27ms[27m/[27ms[27mt[27my[27ml[27me[27m.[27mc[27ms[27ms[1B[27mg[27mi[27mt[27m [27mc[27mo[27mm[27mm[27mi[27mt[27m [27m-[27mm[27m [27m"[27mf[27me[27ma[27mt[27m:[27m [27m모[27m[27m바[27m[27m일[27m[27m [27m퍼[27m[27m스[27m[27m트[27m[27m [27m반[27m[27m응[27m[27m형[27m[27m [27m+[27m [27m카[27m[27m드[27m[27m [27mh[27mo[27mv[27me[27mr[27m·[27mt[27mr[27ma[27mn[27ms[27mi[27mt[27mi[27mo[27mn[27m"[1B[27mg[27mi[27mt[27m [27mp[27mu[27ms[27mh[?2004l
 [main 27b9c60] feat: 모바일 퍼스트 반응형 + 카드 hover·transition
  1 file changed, 139 insertions(+), 96 deletions(-)
 오브젝트 나열하는 중: 7, 완료.
@@ -13,6 +17,6 @@ Total 4 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
 remote: Resolving deltas:   0% (0/1)[Kremote: Resolving deltas: 100% (1/1)[Kremote: Resolving deltas: 100% (1/1), completed with 1 local object.[K
 To https://github.com/soy7yos/B1-1.git
    c3e2781..27b9c60  main -> main
-[1m[7m%[27m[1m[0m                                                                                                               [0m[27m[24m[Jsysy22042026@c6r1s1 B1-1 % [K[?2004heexit[?2004l
+[1m[7m%[27m[1m[0m                                                                                                               [0m[27m[24m[Jsysy22042026@c6r1s1 B1-1 % [K[?2004heexit[?2004l
 
 Script done on Mon Sep 14 19:06:08 2026

@@ -2,6 +2,7 @@
 # 1) 정상 로드 — Projects에 카드(이름/설명/링크) 뜨는지, description "설명 없음" 폴백 보이는지
 # 2) 개발자도구 Network 탭에서 요청 실패시켜(오프라인) 에러 UI + "다시 시도" 버튼 동작 확인
 # 3) 콘솔에서 아래로 빈 상태 강제 확인: fetch('https://api.github.com/users/soy7yos/repos').then(()=>{}) // 실행 대신 콘솔에 renderProjects([]) 직접 호출해 "표시할 프로젝트가 없습니다" 확인
+# 4) 403(무인증 시간당 60회 초과)은 실제로 재현하지 않음 — response.ok 체크가 상태 코드 구분 없이 같은 에러 UI로 묶으므로 2)의 실패 케이스와 동일 경로로 처리됨을 코드로 확인
 
 PS G:\내 드라이브\Codyssey\02_AI_Tools\B1-1> git add index.html js/main.js 
 >> git commit -m "feat: GitHub API 연동 — Projects 카드 렌더링(로딩/에러/빈 상태)"
