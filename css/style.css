@@ -159,13 +159,10 @@ img, .profile-img {
   border-radius: var(--radius);
 }
 
-.thumb-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 160px;
-  border: 1px dashed var(--muted);
-  color: var(--muted);
+.thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* Projects 카드 — 명세 §4-3 필수 그림자, hover에서 강화 + 살짝 떠오르는 느낌 */
@@ -310,8 +307,25 @@ h2 {
   gap: var(--space-2);
 }
 
-.thumb-placeholder {
-  max-width: 400px;
+/* 확대해도 화면 밖으로 안 넘치는 원리 — 고정 px이 아니라 부모 열의 % 로 잡는다.
+   scale은 자기 폭의 배수라, 폭이 열의 45%면 2배 확대는 창 크기와 무관하게 늘 열 폭의 90%다.
+   hover가 없는 터치 기기는 확대 대신 탭해서 원본을 새 탭으로 연다(index.html의 <a>) */
+@media (hover: hover) and (min-width: 768px) {
+  .thumb {
+    max-width: 45%;
+  }
+
+  .thumb img {
+    transition: transform 0.25s ease;
+    transform-origin: left top; /* 오른쪽 여백으로만 펼쳐진다 — 오른쪽 끝 기준이면 가로 스크롤바가 생긴다 */
+  }
+
+  /* transform은 문서 흐름을 안 밀어내므로 아래 문단은 제자리에 있고, 확대분만 그 위를 덮는다 */
+  .thumb:hover img {
+    transform: scale(2);
+    position: relative;
+    z-index: 2;
+  }
 }
 
 /* 768px 이상에서만 2열 — 대제목은 두 열을 가로지르고 이미지는 그 아래 왼쪽 */
