@@ -3,7 +3,7 @@
 순수 HTML/CSS/JavaScript(외부 라이브러리 없음)로 처음부터 만든 반응형 포트폴리오 웹사이트. "사용자 이벤트 → 상태 변경 → DOM 렌더링" 흐름을 결과물로 확인하는 것이 목표다. (Codyssey AI 올인원 2기 · 2단계 AI 도구학습)
 
 ## 배포 URL
-- (GitHub Pages 배포 후 기입)
+- https://soy7yos.github.io/B1-1/
 
 ## 사용 기술
 - HTML5 — 시맨틱 마크업
@@ -15,7 +15,6 @@
 VS Code + Live Server 확장으로 `index.html` 실행.
 
 ## 구현 기능
-(구현 완료 후 확정 — 요구사항 §2·§4 기준)
 - 반응형 레이아웃 (모바일 / 768px 태블릿 / 1024px 데스크톱)
 - 섹션: Hero · About · Skills · Projects · Contact · Footer
 - 다크 모드 토글 (localStorage 유지)
@@ -24,9 +23,9 @@ VS Code + Live Server 확장으로 `index.html` 실행.
 - Contact 폼 유효성 검사 (필수값 · 이메일 형식)
 
 ## 기준값 (자유 변경 항목 — 명세상 README 명시 필수)
-- 스크롤 탑 버튼 노출: 스크롤 300px 이상
-- 네비게이션 배경 변경: 스크롤 60px 이상
-- Intersection Observer threshold: 0.2
+- 스크롤 탑 버튼 노출: 스크롤 600px 이상
+- 네비게이션 배경 변경: 스크롤 30px 이상
+- Intersection Observer threshold: 0.25
 
 ## 스크린샷
 - (데스크톱 / 모바일 / 다크모드 — 완료 후 추가)

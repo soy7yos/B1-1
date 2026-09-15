@@ -1,9 +1,14 @@
 // 5단계에서 인터랙션 로직 채움 — 1단계는 연결 확인용 빈 파일
 
-// 기준값 상수 — README 명시 필수(§4-5). 권장값으로 시작, 9단계 전 최종 튜닝
-const SCROLL_TOP_THRESHOLD = 300; // 스크롤탑 버튼 노출 기준
+// 이 파일이 구현하는 "이벤트 → 상태 → 렌더링" 흐름 3종(요구사항 §4-9) — 각 위치는 아래 해당 블록 참고
+// ① 다크 모드: click(테마 토글) → data-theme 속성값 → CSS가 전체 화면 색 재적용 (applyTheme 근처)
+// ② API 연동: 페이지 로드 → 로딩/성공/에러/빈 상태 → Projects 영역 렌더링 (loadProjects·renderProjects 근처)
+// ③ 폼 검증: submit → 필드별 에러 유무 → 에러 메시지 표시/숨김 (contactForm submit 리스너 근처)
+
+// 기준값 상수 — README 명시 필수(§4-5). 권장값에서 직접 튜닝한 최종값
+const SCROLL_TOP_THRESHOLD = 600; // 스크롤탑 버튼 노출 기준
 const NAV_SCROLL_THRESHOLD = 30;  // 네비 스타일 변경 기준
-const OBSERVER_THRESHOLD = 0.25;   // 6단계 Intersection Observer용, 여기서 미리 선언만
+const OBSERVER_THRESHOLD = 0.25;  // Intersection Observer 페이드인 발동 기준
 
 const nav = document.querySelector('header nav');
 const navLinks = document.querySelector('.nav-links');
