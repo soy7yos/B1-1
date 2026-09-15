@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>soy — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Sans+KR:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
 </head>
@@ -22,7 +23,7 @@
       </ul>
 
       <!-- 동작은 5단계(햄버거 토글)·6단계(다크 모드)에서. 지금은 마크업만 -->
-      <button type="button" class="theme-toggle" aria-label="다크 모드 전환">LIGHT</button>
+      <button type="button" class="theme-toggle" aria-label="다크 모드로 전환"><span class="opt-light">LIGHT</span><span class="opt-dark">DARK</span></button>
       <button type="button" class="hamburger" aria-label="메뉴 열기" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -38,11 +39,13 @@
     </section>
 
     <section id="about">
+      <h2>ABOUT</h2>
+
       <!-- 프로필 이미지: 이니셜 플레이스홀더 SVG. 다크 모드 반전은 3단계 CSS에서 -->
       <img src="images/profile.svg" alt="soy 이니셜 프로필 이미지" class="profile-img">
 
       <article>
-        <h2>BUILT — 01</h2>
+        <h3>BUILT — 01</h3>
         <p>통계학을 전공했고, 원래 이런 도구 다루는 걸 좋아했습니다. 필요한 게 있으면 찾기보다 만들어보는 편이라, AI와 작업을 시작했습니다.</p>
         <p>Discord에 메모를 던지면 자동으로 분류하고, 주간 단위로 우선순위까지 판단해주는 개인 기록 도구. 개인 가계부와 여러 사업자 장부를 하나로 합쳐 손익을 나누고 셀프 신고까지 관리하는 복식부기 도구도 만들었습니다.</p>
 
@@ -56,7 +59,7 @@
       </article>
 
       <article>
-        <h2>OFF DUTY — 02</h2>
+        <h3>OFF DUTY — 02</h3>
         <p>쉬는 시간엔 스릴러·추리·범죄물을 봅니다.</p>
       </article>
     </section>

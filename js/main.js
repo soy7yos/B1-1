@@ -41,7 +41,8 @@ const themeToggle = document.querySelector('.theme-toggle');
 
 function applyTheme(theme) {
   document.documentElement.setAttribute('data-theme', theme);
-  themeToggle.textContent = theme === 'dark' ? 'DARK' : 'LIGHT';
+  // 버튼 안 LIGHT/DARK 표시는 CSS가 data-theme을 보고 처리 — JS는 상태만 바꾼다
+  themeToggle.setAttribute('aria-label', theme === 'dark' ? '라이트 모드로 전환' : '다크 모드로 전환');
 }
 
 const savedTheme = localStorage.getItem(THEME_KEY);
