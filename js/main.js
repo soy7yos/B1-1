@@ -119,7 +119,7 @@ function renderProjects(repos) {
   }
 
   projectsGrid.textContent = ''; // 재시도 시 이전 카드가 중복되지 않도록 비우고 다시 그림
-  repos.forEach(({ name, description, html_url }) => {
+  const cards = repos.map(({ name, description, html_url }) => {
     // 카드 골격은 DOM API로, 남이 지은 값(description)은 textContent로 — repo description에 <> 등이 섞여도 마크업으로 해석 안 되게(이해 문서 §4-7 보안 한 줄)
     const card = document.createElement('article');
     card.className = 'card';
@@ -131,8 +131,9 @@ function renderProjects(repos) {
     link.href = html_url;
     link.textContent = '보기';
     card.append(title, desc, link);
-    projectsGrid.appendChild(card);
+    return card;
   });
+  projectsGrid.append(...cards);
 
   projectsStatus.hidden = true;
   projectsGrid.hidden = false;
