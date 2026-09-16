@@ -1,4 +1,4 @@
-/* :root 변수 — 값 출처는 미션 CLAUDE.md "디자인 토큰 확정"(ref.md에서 추출, 원본은 .gitignore 제외) */
+/* :root 변수 */
 :root {
   --bg: #F5F3EF;
   --text: #1A1A1A;
@@ -16,7 +16,7 @@
   --space-4: 48px;
   --space-5: 96px;
 
-  /* 카드 기본 그림자 — 명세 §4-3 필수, hover에서 강화 */
+  /* 카드 기본 그림자 — hover에서 강화 */
   --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
@@ -40,7 +40,7 @@ body {
   font-family: var(--font-body);
   font-weight: 300;
   font-size: 16px;
-  line-height: 1.7; /* 기본값 1.2는 한글 본문에서 답답하다 */
+  line-height: 1.7;
 }
 
 /* 읽기 폭 제한 — 한 줄이 너무 길면 눈이 다음 줄 첫 글자를 못 찾는다 */
@@ -62,7 +62,7 @@ header {
   background: var(--bg); /* 고정된 nav 뒤로 콘텐츠가 스크롤돼 비쳐 보이는 것 방지 */
 }
 
-/* nav: 로고 좌·메뉴 우 — 요구사항 §4-5(4) 레이아웃 기준 */
+/* nav: 로고 좌·메뉴 우 */
 header nav {
   display: flex;
   align-items: center;
@@ -224,10 +224,11 @@ header nav.scrolled {
   cursor: pointer;
 }
 
-/* 스크롤 애니메이션 — JS가 등장 시 .visible만 추가, 나머지는 CSS transition이 담당.
-   transform(translateY)이 아니라 margin-top을 쓰는 이유 — transform은 값이 0이어도(identity matrix)
-   자손의 position:fixed에 대해 새 containing block을 만들어버린다. About 안의 호버 확대 팝업이
-   화면이 아니라 이 섹션 기준으로 떠버리는 버그가 있어 margin-top으로 바꿨다(시각 효과는 동일) */
+/* 스크롤 애니메이션 — JS는 등장 시 .visible만 붙이고, 움직이는 건 CSS transition이 맡는다.
+   translateY 대신 margin-top을 쓴 이유 — transform은 값이 0이어도 이 안에 있는 요소가
+   position:fixed를 쓸 때 기준점을 이 섹션으로 바꿔버린다. 그래서 About의 호버 확대 팝업이
+   화면 기준이 아니라 이 섹션 기준으로 떠버리는 버그가 있었다. margin-top으로 바꾸니
+   시각 효과는 똑같이 내면서 버그만 사라졌다 */
 .fade-in {
   opacity: 0;
   margin-top: 24px;
@@ -239,7 +240,6 @@ header nav.scrolled {
   margin-top: 0;
 }
 
-/* 제목 크기 — 같은 h3라도 쓰임새가 달라 따로 준다 */
 h2 {
   font-size: clamp(28px, 4vw, 44px);
 }
@@ -279,11 +279,6 @@ h2 {
   line-height: 0.9;
   text-transform: none;
 
-  /* line-height 0.9는 줄 상자를 폰트보다 짧게 만들어 y 꼬리가 상자 밖으로 0.1125em 넘친다.
-     section의 gap 24px은 글자가 아니라 상자 기준이라 그 넘침에 잡아먹혀, 글자가 커질수록
-     여백이 16px(모바일) → 2px(최대 크기)로 쪼그라든다. 글자 크기에 비례하는 em으로 그만큼을
-     돌려주면 어느 크기에서도 25~27px로 일정해진다.
-     위쪽은 안 준다 — soy는 s·o·y 전부 x-height라 위로 올라가는 글자가 없어 이미 여유롭다 */
   margin-bottom: 0.125em;
 }
 
@@ -404,8 +399,7 @@ h2 {
   letter-spacing: 0.06em;
 }
 
-/* 개수 기준 강제 줄바꿈 지점 — 13개를 그냥 두면 마지막 태그 하나만 고아처럼 다음 줄에 남는다(실측 확인)
-   .skills-list li보다 특이도가 높아야 이긴다 */
+/* 개수 기준 강제 줄바꿈 지점 */
 .skills-list li.skills-break {
   flex-basis: 100%;
   height: 0;
@@ -528,7 +522,6 @@ html[data-theme="dark"] .theme-toggle .opt-dark::before {
   display: none;
 }
 
-/* 안내문은 보조색으로 내리고 라벨을 본문색으로 올린다 — 입력 구조가 먼저 읽히게 */
 #contact > p:first-of-type {
   color: var(--muted);
 }
