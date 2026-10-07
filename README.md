@@ -22,6 +22,13 @@ VS Code + Live Server 확장으로 `index.html` 실행.
 - GitHub API 연동 Projects — 로딩 / 성공 / 에러(재시도) / 빈 상태
 - Contact 폼 유효성 검사 (필수값 · 이메일 형식)
 
+## 프로젝트 구조
+- `index.html` — 페이지 뼈대(Hero·About·Skills·Projects·Contact·Footer)
+- `css/style.css` — 전체 스타일(CSS 변수·반응형·다크 모드)
+- `js/main.js` — 상호작용 전체(테마 토글·메뉴·스크롤·GitHub API·폼 검증)
+- `images/` — 프로필·프로젝트 이미지와 README 스크린샷
+- `logs/` — 단계별 구현·검증 로그(`step_N_*.txt`)
+
 ## 기준값 (자유 변경 항목 — 명세상 README 명시 필수)
 - 스크롤 탑 버튼 노출: 스크롤 600px 이상
 - 네비게이션 배경 변경: 스크롤 30px 이상
